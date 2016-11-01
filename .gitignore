@@ -1,7 +1,8 @@
 # ================= #
 # Custeom generated #
 # ================= #
-asset/img/
+asset/img/*
+asset/font/*
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #

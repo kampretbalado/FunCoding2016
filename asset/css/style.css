@@ -1,5 +1,10 @@
+@font-face {
+	font-family: Bariol-Regular;
+	src: local('../font/Bariol-Regular'), url('../font/Bariol.woff') format('woff');
+}
+
 html {
-    background: #AAAAAA; }
+    background: #F8A99B; }
 
 html, body {
     height: 100%;
@@ -11,7 +16,21 @@ html, body {
     margin: 0 auto;
 }
 
-#inner-wrap {
+.wrap {
     display: table-cell;
-    vertical-align: middle;
+	float: left;
+}
+
+p {
+	font-family:Bariol-Regular;
+	font-size: 20px;
+	color: white;
+}
+
+strong {
+	color: #FFF8DD;
+}
+
+i {
+	color: #F0F0F0;
 }

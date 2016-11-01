@@ -7,7 +7,7 @@ $(function() {
     var status = $('#game-status');
 
     function addStatus(what) {
-        status.append('<div>' + what + '</div>');
+        status.append('<div><p>' + what + '</p></div>');
         status.scrollTop(status.prop('scrollHeight'));
     }
 
@@ -129,7 +129,7 @@ $(function() {
     );
 
     addStatus([
-        '<strong>Game Mulai. Silahkan buka folder <i>solusi</i> dan <i>edit</i> File <i>level1_solusi.js</i></strong><br>',
+        '<strong>Game Mulai. Silahkan buka folder <i>solusi</i> dan <i>edit</i> file <i>level1_solusi.js</i></strong><br>',
         'Berada di baris ', player.r + 1, ', kolom ', player.c + 1 ,
         ', menghadap ', ["utara", "barat", "selatan", "timur"][player.d]
     ].join(''));
