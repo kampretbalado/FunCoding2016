@@ -8,7 +8,7 @@ $(function() {
     var status = $('#game-status');
 
     function addStatus(what) {
-        status.append('<div>' + what + '</div>');
+        status.append('<div><p>' + what + '</p></div>');
         status.scrollTop(status.prop('scrollHeight'));
     }
 

@@ -4,10 +4,13 @@
 }
 
 html {
-    background: #F8A99B; }
+    background: #F8A99B; 
+	background: linear-gradient(#F8A99B, #4EC8CC); /* Standard syntax */
+}
 
 html, body {
     height: 100%;
+	margin: 0;
 }
 
 #outer-wrap {
@@ -23,7 +26,7 @@ html, body {
 
 p {
 	font-family:Bariol-Regular;
-	font-size: 20px;
+	font-size: 16px;
 	color: white;
 }
 

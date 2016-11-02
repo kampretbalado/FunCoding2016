@@ -423,6 +423,7 @@ FunCoding = (function() {
     })();
 
     var Player = (function() {
+		//constructor
         function Player(obj, r, c, d) {
             this.obj = obj;
             this.r = r;
@@ -432,7 +433,7 @@ FunCoding = (function() {
             this.setObjPos();
             this.setObjDir();
         }
-
+		//
         Player.prototype.setObjPos = function(r, c) {
             if(r == undefined) r = this.r;
             if(c == undefined) c = this.c;
