@@ -15,7 +15,7 @@ status yang tersedia:
 maju();
 maju();
 belokKanan();
-maju();
-maju();
-maju();
+for (var i = 0; i < 3; i++) maju();
 belokKiri();
+for (var i = 0; i < 3; i++) maju();
+bicara();

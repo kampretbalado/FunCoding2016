@@ -38,7 +38,7 @@ $(function() {
         for(r in obstacle) for(c in obstacle[r]) {
             if(obstacle[r][c] == 1) {
                 new FunCoding.GameObject(
-                    $('<image style="top:8px;width:60px;left:-5px;" src="asset/img/table.png"/>'),
+                    $('<image style="top:-25px;width:60px;left:-5px;" src="asset/img/table.png"/>'),
                     (c * 50), (r * 50)
                 ).addTo(root);
             }
