@@ -12,10 +12,37 @@ status yang tersedia:
     bisaMaju ?
 */
 
-maju();
+
+var cobaMaju = function() {
+	var tryMaju = bisaMaju
+	while (tryMaju) {
+		maju();
+		if (!bisaMaju){
+			tryMaju = false;
+		}
+	}
+}
+belokKanan();
+
+cobaMaju();
+
+belokKanan();
+for (var i = 0; i < 2; i++) {
+	maju();
+}
+
+bicara();
+
+belokKanan();
 maju();
 belokKanan();
-for (var i = 0; i < 3; i++) maju();
+cobaMaju();
 belokKiri();
-for (var i = 0; i < 3; i++) maju();
-bicara();
+cobaMaju();
+
+var kunci = ambil();
+
+belokKiri();belokKiri();
+cobaMaju();
+
+gunakan(kunci);

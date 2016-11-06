@@ -10,18 +10,20 @@ $(function() {
         status.append('<div><p>' + what + '</p></div>');
         status.scrollTop(status.prop('scrollHeight'));
     }
+	
+	// sr: starting row | sc: starting column | er : ending row | ec : ending column
+    var endpoint = { sr: 0, sc: 3, sd: FunCoding.DirectionalObject.RIGHT, er: 7, ec: 7 };
 
-    var endpoint = { sr: 6, sc: 6, sd: FunCoding.DirectionalObject.LEFT, er: 0, ec: 7 };
-
+	// use 1 for table, 0 for nothing, 9 for mother object
     var obstacle = [
-        [1,1,0,0,0,1,1,0],
-        [1,1,0,0,0,1,1,0],
+        [1,1,1,0,0,1,1,0],
+        [1,1,1,0,0,1,1,0],
         [0,0,0,0,0,1,1,0],
-        [9,0,0,0,0,1,1,0],
+        [0,0,0,0,0,1,1,0],
         [0,0,0,0,0,0,0,0],
         [1,1,1,0,0,0,0,0],
-        [1,1,1,0,0,0,0,0],
-        [1,1,1,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0],
+        [9,0,0,0,0,1,1,0],
     ];
 
     function checkPosition(r, c) {
@@ -36,12 +38,13 @@ $(function() {
         ).addTo(root);
 
         for(r in obstacle) for(c in obstacle[r]) {
-            if(obstacle[r][c] == 1) {
+            // meja-meja object
+			if(obstacle[r][c] == 1) {
                 new FunCoding.GameObject(
-                    $('<image style="top:-25px;width:60px;left:-5px;" src="asset/img/table.png"/>'),
+                    $('<image style="top:-15px;width:50px;left:0px;" src="asset/img/table.png"/>'),
                     (c * 50), (r * 50)
                 ).addTo(root);
-            }
+            } // mother object
             else if(obstacle[r][c] == 9) {
                 new FunCoding.GameObject(
                     $('<image src="asset/img/Mother.png" style="height:50px;left:12px;top:-20px;"/>'),
@@ -51,7 +54,7 @@ $(function() {
         }
 
         new FunCoding.GameObject(
-            $('<img src="asset/img/Mat.png" style="width:50px;left:8px;top:8px;"/>'),
+            $('<img src="asset/img/Mat.png" style="top:10px;width:60px;left:-5px;"/>'),
             (endpoint.ec * 50), (endpoint.er * 50)
         ).addTo(root)
     })();
@@ -64,16 +67,16 @@ $(function() {
             new FunCoding.ExclamationMark(r, c, root,
                 function(finish) {
                     addStatus('Berbicara dengan mama');
-                    alert('Mama menyuruh anda untuk berbelanja ke supermarket, gunakan kunci kuning untuk keluar rumah');
+                    alert('Mama menyuruh anda untuk berbelanja ke supermarket, gunakan kunci rumah dengan gantungan kunci untuk keluar rumah');
                     finish();
                 }
             );
-    })(3, 1);
+    })(7, 1); // exclamation point Mama
 
     var key = (function(r, c) {
         var tag = FunCoding.uniqueTag(items);
         return items[[r,c].join()] = items[tag] =
-            new FunCoding.KunciKuning(r, c, root, tag,
+            new FunCoding.KunciRumah(r, c, root, tag,
                 function(finish) {
                     addStatus('Kunci rumah diambil');
                     alert('Kunci rumah berhasil diambil');
@@ -109,19 +112,19 @@ $(function() {
                     }
                 }
             );
-    })(0, 3);
+    })(0, 7); // kunci betulan
 
     (function(r, c) {
         var tag = FunCoding.uniqueTag(items);
         return items[[r,c].join()] =
-            new FunCoding.KunciBiru(r, c, root, tag,
+            new FunCoding.KunciKamar(r, c, root, tag,
                 function(finish) {
                     addStatus('Kunci kamar diambil');
                     alert('Kunci kamar berhasil diambil');
                     finish();
                 }
             );
-    })(0, 4);
+    })(3, 0); // kunci dummy
 
     var player = new FunCoding.Player(
         new FunCoding.DirectionalObject(FunCoding.Player.getNormalFace()).addTo(root),

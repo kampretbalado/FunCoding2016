@@ -279,38 +279,38 @@ FunCoding = (function() {
         return Item;
     })();
 
-    var KunciKuning = (function() {
-        function KunciKuning(r, c, root, tag, takeAnimCb, useCb) {
+    var KunciRumah = (function() {
+        function KunciRumah(r, c, root, tag, takeAnimCb, useCb) {
             this.baseClass.call(this,
                 new GameObject(
                     $('<image src="asset/img/kunci.png" style="top:5px;left:5px;width:40px"/>'),
                     (c * 50), (r * 50)
                 ).addTo(root),
-                "Kunci Kuning", tag, takeAnimCb, useCb
+                "Kunci Rumah", tag, takeAnimCb, useCb
             )
 
         }
 
-        extendUtil(Item, KunciKuning);
+        extendUtil(Item, KunciRumah);
 
-        return KunciKuning;
+        return KunciRumah;
     })();
 
-    var KunciBiru = (function() {
-        function KunciBiru(r, c, root, tag, takeAnimCb, useCb) {
+    var KunciKamar = (function() {
+        function KunciKamar(r, c, root, tag, takeAnimCb, useCb) {
             this.baseClass.call(this,
                 new GameObject(
                     $('<image src="asset/img/kunci2.png" style="top:5px;left:5px;width:40px"/>'),
                     (c * 50), (r * 50)
                 ).addTo(root),
-                "Kunci Biru", tag, takeAnimCb, useCb
+                "Kunci Kamar", tag, takeAnimCb, useCb
             )
 
         }
 
-        extendUtil(Item, KunciBiru);
+        extendUtil(Item, KunciKamar);
 
-        return KunciBiru;
+        return KunciKamar;
     })();
 
     var KunciMerah = (function() {
@@ -772,8 +772,8 @@ FunCoding = (function() {
         randomTag: randomTag,
         uniqueTag: uniqueTag,
         Item: Item,
-        KunciKuning: KunciKuning,
-        KunciBiru: KunciBiru,
+        KunciRumah: KunciRumah,
+        KunciKamar: KunciKamar,
         KunciMerah: KunciMerah,
         ExclamationMark: ExclamationMark,
         LampuMerah: LampuMerah,
