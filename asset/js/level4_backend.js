@@ -8,29 +8,29 @@ $(function() {
     var status = $('#game-status');
 
     function addStatus(what) {
-        status.append('<div>' + what + '</div>');
+        status.append('<div><p>' + what + '</p></div>');
         status.scrollTop(status.prop('scrollHeight'));
     }
 
 
-    var endpoint = { sr: 5, sc: 7, sd: FunCoding.DirectionalObject.LEFT, er: 6, ec: 0 };
+    var endpoint = { sr: 1, sc: 0, sd: FunCoding.DirectionalObject.RIGHT, er: 4, ec: 7};
 
     var obstacle = [
         [
-            [0,1,1,1,1,1,1,1],
-            [0,0,1,1,1,1,1,1],
-            [0,0,1,1,1,1,1,1],
-            [0,0,1,1,1,1,1,1],
-            [0,0,1,1,1,1,1,1],
-            [0,0,1,1,1,1,1,1],
-            [0,0,1,1,1,1,1,1],
-            [0,0,1,1,1,1,1,1],
+            [0,0,0,0,0,0,1,0],
+            [1,1,1,1,1,1,1,0],
+            [0,0,1,1,1,1,0,0],
+            [0,0,1,1,1,1,0,0],
+            [0,0,1,1,1,1,1,0],
+            [0,0,1,1,1,1,1,0],
+            [0,0,1,1,1,1,1,0],
+            [0,0,1,1,1,1,1,0],
         ], [
-            [0,0,0,1,1,1,0,1],
-            [1,1,0,1,1,1,0,1],
-            [1,1,0,1,1,1,0,1],
-            [1,1,0,1,1,1,0,1],
-            [1,1,0,1,1,1,0,1],
+            [1,1,1,1,1,1,0,1],
+            [0,0,0,1,1,0,0,1],
+            [1,1,0,1,1,0,1,1],
+            [1,1,0,1,1,0,1,1],
+            [1,1,0,1,1,0,1,1],
             [1,1,0,0,0,0,0,0],
             [1,1,0,1,1,1,0,1],
             [1,1,0,1,1,1,0,1],
@@ -77,7 +77,7 @@ $(function() {
             return ;
         }
         return items[[r,c].join()] = tmp;
-    })(0, 0);
+    })(1, 7);
 
     var rumahPoint = (function(r, c) {
         var tmp = new FunCoding.ExclamationMark(r, c, root);

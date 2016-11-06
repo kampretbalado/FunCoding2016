@@ -13,24 +13,24 @@ $(function() {
     }
 
 
-    var endpoint = { sr: 6, sc: 0, sd: FunCoding.DirectionalObject.RIGHT, er: 5, ec: 7 };
+    var endpoint = { sr: 4, sc: 7, sd: FunCoding.DirectionalObject.LEFT, er: 1, ec: 0};
 
     var obstacle = [
         [
-            [0,1,1,1,1,1,1,1],
-            [0,0,1,1,1,1,1,1],
-            [0,0,1,1,1,1,1,1],
-            [0,0,1,1,1,1,1,1],
-            [0,0,1,1,1,1,1,1],
-            [0,0,1,1,1,1,1,1],
-            [0,0,1,1,1,1,1,1],
-            [0,0,1,1,1,1,1,1],
+            [0,0,0,0,0,0,1,0],
+            [1,1,1,1,1,1,1,0],
+            [0,0,1,1,1,1,0,0],
+            [0,0,1,1,1,1,0,0],
+            [0,0,1,1,1,1,1,0],
+            [0,0,1,1,1,1,1,0],
+            [0,0,1,1,1,1,1,0],
+            [0,0,1,1,1,1,1,0],
         ], [
-            [0,0,0,1,1,1,0,1],
-            [1,1,0,1,1,1,0,1],
-            [1,1,0,1,1,1,0,1],
-            [1,1,0,1,1,1,0,1],
-            [1,1,0,1,1,1,0,1],
+            [1,1,1,1,1,1,0,1],
+            [0,0,0,1,1,0,0,1],
+            [1,1,0,1,1,0,1,1],
+            [1,1,0,1,1,0,1,1],
+            [1,1,0,1,1,0,1,1],
             [1,1,0,0,0,0,0,0],
             [1,1,0,1,1,1,0,1],
             [1,1,0,1,1,1,0,1],
@@ -66,23 +66,23 @@ $(function() {
         var tmp =
             new FunCoding.Motor(r, c, root,
                 function(finish) {
-                    addStatus('Menaiki Motor');
-                    alert('Menaiki Motor');
+                    addStatus('Memperbaiki motor lalu menaikinya');
+                    alert('Memperbaiki motor lalu menaikinya');
                     finish();
                 }
             )
         tmp.r = r;
         tmp.c = c;
         return tmp;
-    })(0, 0);
+    })(1, 7); // motor location
 
     var key = (function(r, c) {
         var tag = FunCoding.uniqueTag(items);
         return items[[r,c].join()] = items[tag] =
             new FunCoding.KunciMerah(r, c, root, tag,
                 function(finish) {
-                    addStatus('Kunci motor berhasil diambil');
-                    alert('Kunci motor diambil');
+                    addStatus('Kunci inggris berhasil diambil');
+                    alert('Kunci inggris diambil');
                     finish();
                 },
                 function(retVal) {
@@ -95,7 +95,7 @@ $(function() {
                     }
                 }
             )
-    })(7, 1);
+    })(7, 7);
 
     var moves = {};
 
@@ -116,7 +116,7 @@ $(function() {
         ]);
     }
 
-    var lampuMerah = new FunCoding.LampuMerah(5, 6, root, 10, 7, Math.floor(Math.random() * 10), function(r, c, what) {
+    var lampuMerah = new FunCoding.LampuMerah(5, 5, root, 10, 7, Math.floor(Math.random() * 10), function(r, c, what) {
         obstacle[1][r][c] = what ? 0 : 1;
     });
 
@@ -189,7 +189,7 @@ $(function() {
         queue.add(FunCoding.sequence([
             controller.ambil(tmp),
             function(finish) {
-                if(!tmp[0]) addStatus('Ooops, Tidak bisa');
+                if(!tmp[0]) addStatus('Ooops, Tidak bisa. Motor ini sepertinya rusak.');
                 finish();
             }
         ]));
@@ -202,7 +202,7 @@ $(function() {
         queue.add(FunCoding.sequence([
             controller.gunakan(tag, tmp),
             function(finish) {
-                if(!tmp[0]) addStatus('Ooops, Tidak bisa');
+                if(!tmp[0]) addStatus('Ooops, Tidak bisa. Motor ini sepertinya rusak.');
                 finish();
             }
         ]));

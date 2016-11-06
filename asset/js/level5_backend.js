@@ -7,21 +7,21 @@ $(function() {
     var status = $('#game-status');
 
     function addStatus(what) {
-        status.append('<div>' + what + '</div>');
+        status.append('<div><p>' + what + '</p></div>');
         status.scrollTop(status.prop('scrollHeight'));
     }
 
-    var endpoint = { sr: 0, sc: 7, sd: FunCoding.DirectionalObject.DOWN, er: 3, ec: 1 };
+    var endpoint = { sr: 7, sc: 7, sd: FunCoding.DirectionalObject.UP, er: 3, ec: 1 };
 
     var obstacle = [
-        [1,1,0,0,0,1,1,0],
-        [1,1,0,0,0,1,1,0],
+        [1,1,1,0,0,1,1,0],
+        [1,1,1,0,0,1,1,0],
         [0,0,0,0,0,1,1,0],
         [9,0,0,0,0,1,1,0],
         [0,0,0,0,0,0,0,0],
         [1,1,1,0,0,0,0,0],
-        [1,1,1,0,0,0,0,0],
-        [1,1,1,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,1,1,0],
     ];
 
     function checkPosition(r, c) {
@@ -38,7 +38,7 @@ $(function() {
         for(r in obstacle) for(c in obstacle[r]) {
             if(obstacle[r][c] == 1) {
                 new FunCoding.GameObject(
-                    $('<image style="top:8px;width:60px;left:-5px;" src="asset/img/table.png"/>'),
+                    $('<image style="top:-15px;width:50px;left:0px;" src="asset/img/table.png"/>'),
                     (c * 50), (r * 50)
                 ).addTo(root);
             }
@@ -52,7 +52,7 @@ $(function() {
 
         new FunCoding.GameObject(
             $('<img src="asset/img/Mat.png" style="width:50px;left:8px;top:8px;"/>'),
-            (7 * 50), (0 * 50)
+            (7 * 50), (7 * 50)
         ).addTo(root)
     })();
 

@@ -7,7 +7,7 @@ $(function() {
     var status = $('#game-status');
 
     function addStatus(what) {
-        status.append('<div>' + what + '</div>');
+        status.append('<div><p>' + what + '</p></div>');
         status.scrollTop(status.prop('scrollHeight'));
     }
 
@@ -39,7 +39,7 @@ $(function() {
             if(obstacle[r][c] == 1) {
                 new FunCoding.GameObject(
                     [
-                        $('<image style="top:8px;width:60px;left:-5px;" src="asset/img/table.png"/>'),
+                        $('<image style="top:8px;width:60px;left:-5px;" src="asset/img/meja.png"/>'),
                         $('<image style="left:5px;width:40px" src="asset/img/supermarket-apel.png" />')
                     ],
                     (c * 50), (r * 50)
