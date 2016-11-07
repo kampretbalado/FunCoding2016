@@ -3,14 +3,13 @@
     height: 150px;
     overflow: hidden;
     position: relative;
-	margin: 15px 0;
+	margin: 15px auto;
 }
 
 #game-title img{
 	width: auto;
     height: 100%;
-    margin: 10px auto;
-    display: block;
+	left: 100px;
 }
 
 
